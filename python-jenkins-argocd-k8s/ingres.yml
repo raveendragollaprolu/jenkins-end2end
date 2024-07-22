@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  namespace: nginx-deployment-77d8468669-s8vpn
+spec:
+  rules:
+  - host: example.com  # <-- Define your hostname here
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: example-service
+            port:
+              number: 80
+
